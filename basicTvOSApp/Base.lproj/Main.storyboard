@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wzF-d0-3Nm">
     <device id="appleTV" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Posters-->
+        <scene sceneID="n5V-e0-q7d">
+            <objects>
+                <viewController title="Posters" id="ecH-B3-LDo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E3Z-dm-Hgg"/>
+                        <viewControllerLayoutGuide type="bottom" id="fca-7S-zUk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="saH-UL-hOK">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Aip-Qd-0kj"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Posters" id="XO0-Yj-jjP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLQ-uZ-ETE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2472" y="-961"/>
+        </scene>
+        <!--Movie Selection-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="basicTvOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Movie Selection" id="BYZ-38-t0r" customClass="ViewController" customModule="basicTvOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -85,6 +106,7 @@
                             <constraint firstAttribute="trailing" secondItem="8vb-Ah-tgS" secondAttribute="trailing" id="sgz-3A-ARm"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Movies Selection" id="G16-sg-Agn"/>
                     <connections>
                         <outlet property="backgroundMovieImageView" destination="8vb-Ah-tgS" id="Bv9-cl-eVf"/>
                         <outlet property="moviesCollectionView" destination="IVg-Oy-LsW" id="k0S-7a-6K7"/>
@@ -92,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32" y="-5"/>
+            <point key="canvasLocation" x="2472" y="664"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0pn-eT-cza">
@@ -110,7 +132,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epW-no-aXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2399" y="-5"/>
+            <point key="canvasLocation" x="4794" y="664"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aRW-4v-k7X">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wzF-d0-3Nm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Djb-3I-PRu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Suf-FN-4SA"/>
+                        <segue destination="ecH-B3-LDo" kind="relationship" relationship="viewControllers" id="kh1-OU-ev1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1y-jZ-Z5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140" y="31"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
