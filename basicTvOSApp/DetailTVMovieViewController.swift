@@ -19,19 +19,29 @@ class DetailTVMovieViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - ATTRIBUTES
-    private let poster_id = "posterCell"
-    let movies: [Movie] = Movie.movies
-
+    private let related_section = "relatedSection"
+    private let staff_section = "staffSection"
     var movieDetail: Movie?
+    var section: [Section]?
+    enum Section {
+        case relatedMovies([Movie])
+        case movieStaff([Movie])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.detailCollectionView.dataSource = self
-        self.detailCollectionView.delegate = self
+        detailCollectionView.dataSource = self
+        detailCollectionView.delegate = self
         
         setupOutletCustomizations()
         backgroundDetailsMovieImageView.image = UIImage(named: movieDetail!.name)
         movieOverviewLabel.text = movieDetail?.overview
+        
+        section = [
+            .relatedMovies(Movie.movies),
+            .movieStaff(Movie.movies)
+        ]
+        
     }
     
     
@@ -43,19 +53,35 @@ class DetailTVMovieViewController: UIViewController {
 
 
 extension DetailTVMovieViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        section!.count
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        let sectionModel = self.section![section]
+        
+        switch sectionModel {
+        case .relatedMovies(_):
+            return 1
+        case .movieStaff(_):
+            return 1
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let sectionModel = self.section![indexPath.section]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: poster_id, for: indexPath) as! TVMovieDetailCollectionViewCell
-        
-        let movie = movies[indexPath.row]
-        cell.posterView.image = UIImage(named: movie.name)
-        cell.posterView.title = movie.name
-        return cell
+        switch sectionModel {
+        case .relatedMovies(_):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: related_section, for: indexPath) as! RelatedMovieSectionCollectionViewCell
+            cell.configure()
+            return cell
+        case .movieStaff(_):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: staff_section, for: indexPath) as! StaffSectionCollectionViewCell
+            cell.configure()
+            return cell
+        }
     }
 }
 
@@ -63,17 +89,17 @@ extension DetailTVMovieViewController: UICollectionViewDelegate {
 
 }
 
-
-// MARK: - UI COLLECTIONVIEW DELEGATE FLOW LAYOUT
 extension DetailTVMovieViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 280, height: 360)
+        
+        let sectionModel = self.section![indexPath.section]
+
+        switch sectionModel {
+        case .relatedMovies(let movies):
+            return CGSize(width: detailCollectionView.frame.width - 32, height: 400)
+        case .movieStaff(let staff):
+            return CGSize(width: detailCollectionView.frame.width - 32, height: 400)
+        }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
-    }
-    
-    
 }

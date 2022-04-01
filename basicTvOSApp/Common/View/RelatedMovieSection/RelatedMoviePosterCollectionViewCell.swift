@@ -8,10 +8,10 @@
 import UIKit
 import TVUIKit
 
-class TVMovieDetailCollectionViewCell: UICollectionViewCell {
+class RelatedMoviePosterCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var posterView: TVPosterView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
