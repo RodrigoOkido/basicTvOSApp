@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="TVUIKit controls" minToolsVersion="10.2"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -166,12 +167,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZS6-ik-S5y">
+                                <rect key="frame" x="80" y="368" width="1760" height="652"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pnk-aC-M5h">
+                                    <size key="itemSize" width="256" height="327"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="posterCell" id="bA6-X5-uRy" customClass="TVMovieDetailCollectionViewCell" customModule="basicTvOSApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162.5" width="256" height="327"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Z5J-sl-i4t">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="327"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <tvPosterView contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="The King's Man" title="Encanto" translatesAutoresizingMaskIntoConstraints="NO" id="K8d-aW-Pr4">
+                                                    <rect key="frame" x="5" y="0.0" width="200" height="350"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="posterCell:" destination="SJk-iM-8DK" eventType="primaryActionTriggered" id="5qh-i9-sBs"/>
+                                                    </connections>
+                                                </tvPosterView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="256" height="327"/>
+                                        <connections>
+                                            <outlet property="posterView" destination="K8d-aW-Pr4" id="qbr-lL-VM9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="asV-Wc-Plc"/>
                         <constraints>
                             <constraint firstItem="CuH-Mw-Jvk" firstAttribute="centerX" secondItem="MIg-9b-4yq" secondAttribute="centerX" id="5WF-To-Yid"/>
                             <constraint firstItem="MIg-9b-4yq" firstAttribute="leading" secondItem="asV-Wc-Plc" secondAttribute="leading" id="9M5-iu-pvj"/>
                             <constraint firstItem="asV-Wc-Plc" firstAttribute="trailing" secondItem="QFY-Fa-Hym" secondAttribute="trailing" constant="30" id="9gc-mP-LV3"/>
+                            <constraint firstItem="ZS6-ik-S5y" firstAttribute="leading" secondItem="asV-Wc-Plc" secondAttribute="leading" id="Ax1-7K-fn0"/>
+                            <constraint firstItem="asV-Wc-Plc" firstAttribute="bottom" secondItem="ZS6-ik-S5y" secondAttribute="bottom" id="EL4-nR-qa1"/>
                             <constraint firstAttribute="trailing" secondItem="z1w-AF-ugc" secondAttribute="trailing" id="IEB-8T-vtA"/>
                             <constraint firstItem="z1w-AF-ugc" firstAttribute="leading" secondItem="I0g-e1-IjX" secondAttribute="leading" id="Lq1-kp-4Vc"/>
                             <constraint firstItem="QFY-Fa-Hym" firstAttribute="leading" secondItem="MIg-9b-4yq" secondAttribute="trailing" constant="60" id="MNF-fp-hyj"/>
@@ -179,18 +214,22 @@
                             <constraint firstItem="z1w-AF-ugc" firstAttribute="top" secondItem="I0g-e1-IjX" secondAttribute="top" id="g0G-EG-y6c"/>
                             <constraint firstItem="QFY-Fa-Hym" firstAttribute="top" secondItem="asV-Wc-Plc" secondAttribute="top" constant="30" id="kTr-tf-VYH"/>
                             <constraint firstItem="MIg-9b-4yq" firstAttribute="top" secondItem="asV-Wc-Plc" secondAttribute="top" id="sys-mY-Id2"/>
+                            <constraint firstItem="asV-Wc-Plc" firstAttribute="trailing" secondItem="ZS6-ik-S5y" secondAttribute="trailing" id="uQb-VJ-LZT"/>
                             <constraint firstAttribute="bottom" secondItem="z1w-AF-ugc" secondAttribute="bottom" id="ur7-C4-2HK"/>
+                            <constraint firstItem="ZS6-ik-S5y" firstAttribute="top" secondItem="CuH-Mw-Jvk" secondAttribute="bottom" constant="30" id="zZo-8v-BW1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vIP-Fk-bdW"/>
                     <connections>
                         <outlet property="backgroundDetailsMovieImageView" destination="z1w-AF-ugc" id="bQJ-08-H0b"/>
+                        <outlet property="detailCollectionView" destination="ZS6-ik-S5y" id="NtA-lF-mYw"/>
                         <outlet property="movieOverviewLabel" destination="QFY-Fa-Hym" id="cpH-4N-lMy"/>
                         <outlet property="playButton" destination="dqU-vt-AeW" id="zWT-RI-sYX"/>
                         <outlet property="saveButton" destination="pHs-3Y-5MI" id="rdK-iU-ciH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epW-no-aXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="SJk-iM-8DK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4794" y="664"/>
         </scene>
@@ -215,6 +254,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="The King's Man" width="1920" height="1080"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
