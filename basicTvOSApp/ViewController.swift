@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     // MARK: - ATTRIBUTES
     private let movieCell_id = "TVMovieCell"
     let movies: [Movie] = Movie.movies
+    var selectedMovie: Movie? = nil
     let focusGuide: UIFocusGuide = UIFocusGuide()
     
     
@@ -62,6 +63,20 @@ extension ViewController: UICollectionViewDataSource {
         cell.movieTitle.text = movie.name
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        selectedMovie = movies[indexPath.row]
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "movieDetail" {
+            let nextViewController = segue.destination as? DetailTVMovieViewController
+            
+            nextViewController?.movieDetail = selectedMovie
+        }
     }
 }
 

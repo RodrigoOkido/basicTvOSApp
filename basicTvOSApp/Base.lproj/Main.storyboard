@@ -89,6 +89,7 @@
                                         <connections>
                                             <outlet property="movieThumbnail" destination="lwR-Vl-c4l" id="bm7-bz-1P2"/>
                                             <outlet property="movieTitle" destination="0cv-rd-xQ8" id="omy-w0-z8D"/>
+                                            <segue destination="TXW-d9-hcq" kind="show" identifier="movieDetail" id="Xpr-5w-I7c"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -116,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="2472" y="664"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailTV Movie View Controller-->
         <scene sceneID="0pn-eT-cza">
             <objects>
-                <viewController id="TXW-d9-hcq" sceneMemberID="viewController">
+                <viewController id="TXW-d9-hcq" customClass="DetailTVMovieViewController" customModule="basicTvOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Twp-DI-O0v"/>
                         <viewControllerLayoutGuide type="bottom" id="TPR-tB-iTl"/>
@@ -127,8 +128,67 @@
                     <view key="view" contentMode="scaleToFill" id="I0g-e1-IjX">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z1w-AF-ugc">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MIg-9b-4yq">
+                                <rect key="frame" x="80" y="60" width="300" height="192"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqU-vt-AeW">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="86"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Play"/>
+                                    </button>
+                                    <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHs-3Y-5MI">
+                                        <rect key="frame" x="0.0" y="106" width="300" height="86"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="egA-ea-8OK"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFY-Fa-Hym">
+                                <rect key="frame" x="440" y="90" width="1370" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuH-Mw-Jvk">
+                                <rect key="frame" x="102" y="292" width="256" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="asV-Wc-Plc"/>
+                        <constraints>
+                            <constraint firstItem="CuH-Mw-Jvk" firstAttribute="centerX" secondItem="MIg-9b-4yq" secondAttribute="centerX" id="5WF-To-Yid"/>
+                            <constraint firstItem="MIg-9b-4yq" firstAttribute="leading" secondItem="asV-Wc-Plc" secondAttribute="leading" id="9M5-iu-pvj"/>
+                            <constraint firstItem="asV-Wc-Plc" firstAttribute="trailing" secondItem="QFY-Fa-Hym" secondAttribute="trailing" constant="30" id="9gc-mP-LV3"/>
+                            <constraint firstAttribute="trailing" secondItem="z1w-AF-ugc" secondAttribute="trailing" id="IEB-8T-vtA"/>
+                            <constraint firstItem="z1w-AF-ugc" firstAttribute="leading" secondItem="I0g-e1-IjX" secondAttribute="leading" id="Lq1-kp-4Vc"/>
+                            <constraint firstItem="QFY-Fa-Hym" firstAttribute="leading" secondItem="MIg-9b-4yq" secondAttribute="trailing" constant="60" id="MNF-fp-hyj"/>
+                            <constraint firstItem="CuH-Mw-Jvk" firstAttribute="top" secondItem="MIg-9b-4yq" secondAttribute="bottom" constant="40" id="ZDl-22-fto"/>
+                            <constraint firstItem="z1w-AF-ugc" firstAttribute="top" secondItem="I0g-e1-IjX" secondAttribute="top" id="g0G-EG-y6c"/>
+                            <constraint firstItem="QFY-Fa-Hym" firstAttribute="top" secondItem="asV-Wc-Plc" secondAttribute="top" constant="30" id="kTr-tf-VYH"/>
+                            <constraint firstItem="MIg-9b-4yq" firstAttribute="top" secondItem="asV-Wc-Plc" secondAttribute="top" id="sys-mY-Id2"/>
+                            <constraint firstAttribute="bottom" secondItem="z1w-AF-ugc" secondAttribute="bottom" id="ur7-C4-2HK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vIP-Fk-bdW"/>
+                    <connections>
+                        <outlet property="backgroundDetailsMovieImageView" destination="z1w-AF-ugc" id="bQJ-08-H0b"/>
+                        <outlet property="movieOverviewLabel" destination="QFY-Fa-Hym" id="cpH-4N-lMy"/>
+                        <outlet property="playButton" destination="dqU-vt-AeW" id="zWT-RI-sYX"/>
+                        <outlet property="saveButton" destination="pHs-3Y-5MI" id="rdK-iU-ciH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epW-no-aXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,6 +200,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wzF-d0-3Nm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Djb-3I-PRu">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -154,6 +215,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
