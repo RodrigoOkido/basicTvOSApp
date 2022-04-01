@@ -21,6 +21,7 @@ class DetailTVMovieViewController: UIViewController {
     // MARK: - ATTRIBUTES
     private let related_section = "relatedSection"
     private let staff_section = "staffSection"
+    let focusGuide: UIFocusGuide = UIFocusGuide()
     var movieDetail: Movie?
     var section: [Section]?
     enum Section {
@@ -37,6 +38,15 @@ class DetailTVMovieViewController: UIViewController {
         backgroundDetailsMovieImageView.image = UIImage(named: movieDetail!.name)
         movieOverviewLabel.text = movieDetail?.overview
         
+        view.addLayoutGuide(focusGuide)
+        
+        NSLayoutConstraint.activate([
+            focusGuide.bottomAnchor.constraint(equalTo: detailCollectionView.topAnchor),
+            focusGuide.leftAnchor.constraint(equalTo: detailCollectionView.leftAnchor),
+            focusGuide.widthAnchor.constraint(equalTo: detailCollectionView.widthAnchor),
+            focusGuide.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
         section = [
             .relatedMovies(Movie.movies),
             .movieStaff(Movie.movies)
@@ -48,6 +58,15 @@ class DetailTVMovieViewController: UIViewController {
     func setupOutletCustomizations() {
         playButton.layer.cornerRadius = 10
         saveButton.layer.cornerRadius = 10
+    }
+    
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let previous = context.previouslyFocusedView,
+              let next = context.nextFocusedView else { return }
+        
+        focusGuide.isEnabled = !(next is UICollectionViewCell)
+        focusGuide.preferredFocusEnvironments = [previous]
     }
 }
 
@@ -66,7 +85,6 @@ extension DetailTVMovieViewController: UICollectionViewDataSource {
         case .movieStaff(_):
             return 1
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,5 +119,9 @@ extension DetailTVMovieViewController: UICollectionViewDelegateFlowLayout {
         case .movieStaff(let staff):
             return CGSize(width: detailCollectionView.frame.width - 32, height: 400)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
 }
