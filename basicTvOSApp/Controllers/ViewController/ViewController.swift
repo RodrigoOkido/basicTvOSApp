@@ -50,9 +50,11 @@ class ViewController: UIViewController {
 // MARK: - UI COLLECTIONVIEW DATASOURCE
 extension ViewController: UICollectionViewDataSource {
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCell_id, for: indexPath) as! TVMovieCollectionViewCell
@@ -65,13 +67,14 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         selectedMovie = movies[indexPath.row]
         return true
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "movieDetail" {
             let nextViewController = segue.destination as? DetailTVMovieViewController
             

@@ -14,6 +14,15 @@ class RelatedMoviePosterCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupOutletComponents()
+    }
+    
+    
+    /**
+     Customize outlet components.
+     */
+    func setupOutletComponents() {
+        posterView.layer.cornerRadius = 10
     }
 
 

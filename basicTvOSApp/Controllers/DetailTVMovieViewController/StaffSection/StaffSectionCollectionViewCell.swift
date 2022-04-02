@@ -1,21 +1,23 @@
 //
-//  RelatedMoviePosterCollectionViewCell.swift
+//  StaffSectionCollectionViewCell.swift
 //  basicTvOSApp
 //
 //  Created by Rodrigo Yukio Okido on 01/04/22.
 //
 
 import UIKit
-import TVUIKit
 
-
-class RelatedMovieSectionCollectionViewCell: UICollectionViewCell {
+class StaffSectionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+
+    private let staff_id = "staffCell"
+    let staff: [Movie] = Movie.movies
     
-    private let poster_id = "posterCell"
-    let relatedMovies: [Movie] = Movie.movies
     
+    /**
+     Configure cell.
+     */
     func configure() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -23,24 +25,23 @@ class RelatedMovieSectionCollectionViewCell: UICollectionViewCell {
 }
 
 
-extension RelatedMovieSectionCollectionViewCell: UICollectionViewDataSource {
+extension StaffSectionCollectionViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return relatedMovies.count
+        return staff.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: poster_id, for: indexPath) as! RelatedMoviePosterCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: staff_id, for: indexPath) as! StaffMonogramCollectionViewCell
         
-        let movie = relatedMovies[indexPath.row]
-        cell.posterView.image = UIImage(named: movie.name)
-        cell.posterView.title = movie.name
+        let movie = staff[indexPath.row]
+        cell.staffMonogram.title = movie.name
         return cell
     }
 }
 
-extension RelatedMovieSectionCollectionViewCell: UICollectionViewDelegateFlowLayout {
+extension StaffSectionCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 250, height: 380)
@@ -50,3 +51,4 @@ extension RelatedMovieSectionCollectionViewCell: UICollectionViewDelegateFlowLay
         10
     }
 }
+

@@ -34,9 +34,7 @@ class DetailTVMovieViewController: UIViewController {
         detailCollectionView.dataSource = self
         detailCollectionView.delegate = self
         
-        setupOutletCustomizations()
-        backgroundDetailsMovieImageView.image = UIImage(named: movieDetail!.name)
-        movieOverviewLabel.text = movieDetail?.overview
+        setupOutletComponents()
         
         view.addLayoutGuide(focusGuide)
         
@@ -55,9 +53,17 @@ class DetailTVMovieViewController: UIViewController {
     }
     
     
-    func setupOutletCustomizations() {
+    /**
+     Customize and load outlet components.
+     */
+    func setupOutletComponents() {
+        // Customize components
         playButton.layer.cornerRadius = 10
         saveButton.layer.cornerRadius = 10
+        
+        // Load data
+        backgroundDetailsMovieImageView.image = UIImage(named: movieDetail!.name)
+        movieOverviewLabel.text = movieDetail?.overview
     }
     
     
@@ -76,6 +82,7 @@ extension DetailTVMovieViewController: UICollectionViewDataSource {
         section!.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionModel = self.section![section]
         
@@ -86,6 +93,7 @@ extension DetailTVMovieViewController: UICollectionViewDataSource {
             return 1
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let sectionModel = self.section![indexPath.section]
