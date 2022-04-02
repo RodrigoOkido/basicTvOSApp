@@ -337,6 +337,85 @@
             </objects>
             <point key="canvasLocation" x="4794" y="664"/>
         </scene>
+        <!--Top Shelf Controller-->
+        <scene sceneID="In7-3T-wXf">
+            <objects>
+                <viewController id="ywD-XU-NSh" customClass="TopShelfController" customModule="basicTvOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5oL-Fx-V2j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wjs-sp-S69"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kvh-r3-vsI">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="euG-a1-omt">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yPK-Y4-a2N">
+                                <rect key="frame" x="841.5" y="679.5" width="237" height="260.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv9-VJ-WUC">
+                                        <rect key="frame" x="0.0" y="0.0" width="237" height="86"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Play"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NM-s6-c6r">
+                                        <rect key="frame" x="0.0" y="116" width="237" height="86"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="More Info"/>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ml9-Ku-Ufi">
+                                        <rect key="frame" x="0.0" y="232" width="237" height="28.5"/>
+                                    </pageControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="APc-lp-rB7">
+                                <rect key="frame" x="140" y="120" width="199" height="124"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-OC-dMp">
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="35"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-50-1dx">
+                                        <rect key="frame" x="0.0" y="55" width="199" height="69"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iCz-Dl-jVr"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="euG-a1-omt" secondAttribute="trailing" id="4UU-48-rtY"/>
+                            <constraint firstItem="APc-lp-rB7" firstAttribute="leading" secondItem="iCz-Dl-jVr" secondAttribute="leading" constant="60" id="5JK-iY-rMo"/>
+                            <constraint firstItem="euG-a1-omt" firstAttribute="top" secondItem="kvh-r3-vsI" secondAttribute="top" id="9sI-zN-713"/>
+                            <constraint firstItem="iCz-Dl-jVr" firstAttribute="bottom" secondItem="yPK-Y4-a2N" secondAttribute="bottom" constant="80" id="FnL-Rk-uPA"/>
+                            <constraint firstItem="euG-a1-omt" firstAttribute="leading" secondItem="kvh-r3-vsI" secondAttribute="leading" id="G4v-BJ-os7"/>
+                            <constraint firstAttribute="bottom" secondItem="euG-a1-omt" secondAttribute="bottom" id="Jk5-MP-ZdM"/>
+                            <constraint firstItem="APc-lp-rB7" firstAttribute="top" secondItem="iCz-Dl-jVr" secondAttribute="top" constant="60" id="gSy-G2-utb"/>
+                            <constraint firstItem="yPK-Y4-a2N" firstAttribute="centerX" secondItem="kvh-r3-vsI" secondAttribute="centerX" id="sJa-FM-ZUm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="moreInfoButton" destination="5NM-s6-c6r" id="vhh-6r-NpB"/>
+                        <outlet property="movieImage" destination="euG-a1-omt" id="8Q9-3a-sMF"/>
+                        <outlet property="movieTitle" destination="L1g-50-1dx" id="chE-AX-ZDh"/>
+                        <outlet property="playButton" destination="fv9-VJ-WUC" id="FFX-2F-y4N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLX-mY-aVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140" y="-2470"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aRW-4v-k7X">
             <objects>

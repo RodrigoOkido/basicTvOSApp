@@ -20,6 +20,7 @@
 		2B9CBF6E27F781D5006A2308 /* RelatedMovieSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CBF6D27F781D5006A2308 /* RelatedMovieSectionCollectionViewCell.swift */; };
 		2B9CBF7127F7921D006A2308 /* StaffSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CBF7027F7921D006A2308 /* StaffSectionCollectionViewCell.swift */; };
 		2B9CBF7327F7924B006A2308 /* StaffMonogramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CBF7227F7924B006A2308 /* StaffMonogramCollectionViewCell.swift */; };
+		2BE5AA6627F8CDF7000A4DDF /* TopShelfController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE5AA6527F8CDF7000A4DDF /* TopShelfController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		2B9CBF6D27F781D5006A2308 /* RelatedMovieSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedMovieSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B9CBF7027F7921D006A2308 /* StaffSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B9CBF7227F7924B006A2308 /* StaffMonogramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffMonogramCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BE5AA6527F8CDF7000A4DDF /* TopShelfController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopShelfController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				2BE5AA6427F8BCC3000A4DDF /* ViewController */,
 				2BE5AA6327F8BC98000A4DDF /* DetailTVMovieViewController */,
+				2BE5AA6727F8CE1D000A4DDF /* TopShelfViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +159,14 @@
 				2B9CB8AC27F6842000D5CDFB /* MoviesCollection */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2BE5AA6727F8CE1D000A4DDF /* TopShelfViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2BE5AA6527F8CDF7000A4DDF /* TopShelfController.swift */,
+			);
+			path = TopShelfViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 				2B9CB89427F6710200D5CDFB /* AppDelegate.swift in Sources */,
 				2B9CBF6E27F781D5006A2308 /* RelatedMovieSectionCollectionViewCell.swift in Sources */,
 				2B9CBF6C27F76EE0006A2308 /* RelatedMoviePosterCollectionViewCell.swift in Sources */,
+				2BE5AA6627F8CDF7000A4DDF /* TopShelfController.swift in Sources */,
 				2B9CBF6A27F753AE006A2308 /* DetailTVMovieViewController.swift in Sources */,
 				2B9CB8AA27F6840800D5CDFB /* UIView+Extensions.swift in Sources */,
 				2B9CB8A527F67C0C00D5CDFB /* Movie.swift in Sources */,
